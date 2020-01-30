@@ -40,10 +40,33 @@ const signOutTTT = function (data) {
   })
 }
 
+// const newGameTTT = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: '{}'
+//   })
+// }
+//
+// const gameMoveTTT = function (data) {
+//   return $.ajax({
+//     url: config.apiUrl + '/games/',
+//     method: 'PATCH',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: data
+//   })
+// }
+
 module.exports = {
   signUpTTT,
   signInTTT,
   changePasswordTTT,
   signOutTTT
-
+  // newGameTTT,
+  // gameMoveTTT
 }

@@ -9,6 +9,7 @@ const onSignUpSuccessTTT = function (response) {
   $('#message').addClass('success-message')
   $('#change-password').show()
   $('#sign-out').show()
+  $('#newGame').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
 }
@@ -28,6 +29,7 @@ const onSignInSuccessTTT = function (response) {
   $('#message').addClass('success-message')
   $('#change-password').show()
   $('#sign-out').show()
+  $('#newGame').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
 }

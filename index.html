@@ -13,39 +13,51 @@
     </head>
     <body>
       <h1>Tic Tac Toe</h1>
-        <form id="sign-up">
-          <fieldset>
-            <legend>Sign up for TicTacToe</legend>
-            <input name="credentials[email]" type="email" placeholder="example@google.com">
-            <input name="credentials[password]" type="password" placeholder="Password">
-            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-            <input type = "submit" value="Sign up">
-          </fieldset>
-        </form>
-        <form id="sign-in">
-          <fieldset>
-            <legend>Sign in to your TicTacToe account</legend>
-            <input name="credentials[email]" type="email" placeholder="example@google.com">
-            <input name="credentials[password]" type="password" placeholder="Password">
-            <input type = "submit" value="Sign in">
-          </fieldset>
-        </form>
-        <form id="change-password">
-          <fieldset>
-            <legend>Change your password</legend>
-            <input name="passwords[old]" type="password" placeholder="Current password">
-            <input name="passwords[new]" type="password" placeholder="New password">
-            <input type = "submit" value="Change password">
-          </fieldset>
-        </form>
-        <form id="sign-out">
-          <fieldset>
-            <legend>Sign out</legend>
-            <input type = "submit" value="Sign out">
-          </fieldset>
-        </form>
-        <p id='message'></p>
-
-
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up for TicTacToe</legend>
+          <input name="credentials[email]" type="email" placeholder="example@google.com">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+          <input type = "submit" value="Sign up">
+        </fieldset>
+      </form>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in to your TicTacToe account</legend>
+          <input name="credentials[email]" type="email" placeholder="example@google.com">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <input type = "submit" value="Sign in">
+        </fieldset>
+      </form>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change your password</legend>
+          <input name="passwords[old]" type="password" placeholder="Current password">
+          <input name="passwords[new]" type="password" placeholder="New password">
+          <input type = "submit" value="Change password">
+        </fieldset>
+      </form>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign out</legend>
+          <input type = "submit" value="Sign out">
+        </fieldset>
+      </form>
+      <p id='message'></p>
+      <button type='button' id='newGame'>Start a new game</button>
+      <div class='container' id='gameBoard'>
+        <div class='row'>
+          <div class='square col-4 board-bottom board-right'></div>
+          <div class='square col-4 board-bottom board-left board-right'></div>
+          <div class='square col-4 board-bottom board-left'></div>
+          <div class='square col-4 board-top board-bottom board-right'></div>
+          <div class='square col-4 board-top board-bottom board-left board-right'></div>
+          <div class='square col-4 board-top board-bottom board-left'></div>
+          <div class='square col-4 board-top board-right'></div>
+          <div class='square col-4 board-top board-left board-right'></div>
+          <div class='square col-4 board-top board-left'></div>
+        </div>
+      </div>
     </body>
 </html>

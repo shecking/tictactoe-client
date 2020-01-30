@@ -2,7 +2,8 @@
 
 const getFormFields = require('./../../../lib/get-form-fields')
 const api = require('./api.js')
-const ui = require('./ui')
+const ui = require('./ui.js')
+// const store = require('../store.js')
 
 const onSignUpTTT = function (event) {
   event.preventDefault()
@@ -39,9 +40,29 @@ const onSignOutTTT = function (event) {
     .catch(ui.onSignOutFailureTTT)
 }
 
+const onNewGameTTT = function (event) {
+  $('#gameBoard').show()
+  const form = event.target
+  const data = getFormFields(form)
+  api.NewGameTTT(data)
+    .then()
+    .catch()
+}
+
+const onGameMoveTTT = function (event) {
+  // console.log('click')
+  const form = event.target
+  const data = getFormFields(form)
+  api.GameMoveTTT(data)
+    .then()
+    .catch()
+}
+
 module.exports = {
   onSignUpTTT,
   onSignInTTT,
   onChangePasswordTTT,
-  onSignOutTTT
+  onSignOutTTT,
+  onNewGameTTT,
+  onGameMoveTTT
 }
