@@ -50,28 +50,55 @@ const onNewGameTTT = function (event) {
 }
 let turnCount = 0
 const onGameMoveTTT = function (event) {
-  const form = event.target
-  const data = getFormFields(form)
-  if (turnCount % 2 !== 1) {
+  if ((turnCount % 2 !== 1) && (turnCount < 9)) {
     $(event.target).children('.x-move').show()
     turnCount = turnCount + 1
-    console.log(turnCount)
-  } else {
+    const cellIndexX = {
+      data: {
+        'game': {
+          'cell': {
+            'index': '0', // what position did they move to
+            // using data attributes and value/over properties
+            // see Game Actions doc
+            'value': 'x' // who made the move
+          },
+          'over': false // is the game over
+        }
+      }
+    }
+    api.xMoveTTT(cellIndexX)
+      .then(ui.onXMoveTTT)
+  } else if ((turnCount % 2 !== 0) && (turnCount < 9)) {
     $(event.target).children('.o-move').show()
     turnCount = turnCount + 1
-    console.log(turnCount)
+    const cellIndexO = {
+      data: {
+        'game': {
+          'cell': {
+            'index': '0', // what position did they move to
+            // using data attributes and value/over properties
+            // see Game Actions doc
+            'value': 'o' // who made the move
+          },
+          'over': false // is the game over
+        }
+      }
+    }
+    api.oMoveTTT(cellIndexO)
+      .then(ui.onOMoveTTT)
+  } else if (turnCount === 9) {
+    // api.endGame(data)
+    // .then(ui.onEndGameTTT)
+    // 'over': true
   }
-  // api.endGame(data)
-  // .then(ui.onEndGameTTT)
 }
 
 const onResetGameTTT = function (event) {
-  event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
   api.newGameTTT(data)
-    .then(ui.onNewGameStartTTT)
-    .catch(ui.onNewGameFailTTT)
+    .then(ui.onResetGameSuccessTTT)
+    .catch(ui.onResetGameFailTTT)
 }
 
 module.exports = {
@@ -82,4 +109,5 @@ module.exports = {
   onNewGameTTT,
   onGameMoveTTT,
   onResetGameTTT
+  // turnCount
 }

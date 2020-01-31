@@ -62,10 +62,20 @@ const resetGameTTT = function (data) {
   })
 }
 
-const gameMoveTTT = function (data) {
+const xMoveTTT = function (data) {
   return $.ajax({
-    url: config.apiUrl + '/games/',
-    // THIS URL NEEDS AN ID
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const oMoveTTT = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -81,5 +91,6 @@ module.exports = {
   signOutTTT,
   newGameTTT,
   resetGameTTT,
-  gameMoveTTT
+  xMoveTTT,
+  oMoveTTT
 }

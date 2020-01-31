@@ -76,6 +76,7 @@ const onSignOutFailureTTT = function (response) {
 }
 
 const onNewGameStartTTT = function (response) {
+  store.game = response.game
   $('#message').text('User started a new game.')
   $('#message').removeClass()
   $('#message').addClass('success-message')
@@ -92,18 +93,37 @@ const onNewGameFailTTT = function (response) {
   $('#message').text('Error: could not start a new game. Please try again.')
 }
 
-const onGameMoveTTT = function () {
+const onResetGameSuccessTTT = function () {
+  $('#message').removeClass()
+  $('#message').addClass('move-message')
+  $('#message').text('User reset the game.')
+}
+
+const onResetGameFailTTT = function () {
+  $('#message').removeClass()
+  $('#message').addClass('move-message')
+  $('#message').text('Unable to reset the game.')
+}
+
+const onXMoveTTT = function () {
   event.preventDefault()
   $('#message').removeClass()
   $('#message').addClass('move-message')
-  // turn changer text
+  $('#message').text('O, it is your move.')
+}
+
+const onOMoveTTT = function () {
+  event.preventDefault()
+  $('#message').removeClass()
+  $('#message').addClass('move-message')
+  $('#message').text('X, it is your move.')
 }
 
 const onEndGameTTT = function () {
   event.preventDefault()
   $('#message').removeClass()
   $('#message').addClass('end-game-message')
-  $('message').text('Game is over')
+  $('#message').text('Game is over')
 }
 
 module.exports = {
@@ -117,6 +137,9 @@ module.exports = {
   onSignOutFailureTTT,
   onNewGameStartTTT,
   onNewGameFailTTT,
-  onGameMoveTTT,
+  onResetGameSuccessTTT,
+  onResetGameFailTTT,
+  onXMoveTTT,
+  onOMoveTTT,
   onEndGameTTT
 }
