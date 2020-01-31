@@ -30,7 +30,7 @@ const changePasswordTTT = function (data) {
   })
 }
 
-const signOutTTT = function (data) {
+const signOutTTT = function () {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
@@ -40,33 +40,46 @@ const signOutTTT = function (data) {
   })
 }
 
-// const newGameTTT = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: '{}'
-//   })
-// }
-//
-// const gameMoveTTT = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/games/',
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: data
-//   })
-// }
+const newGameTTT = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: '{}'
+  })
+}
+
+const resetGameTTT = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: '{}'
+  })
+}
+
+const gameMoveTTT = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games/',
+    // THIS URL NEEDS AN ID
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
 
 module.exports = {
   signUpTTT,
   signInTTT,
   changePasswordTTT,
-  signOutTTT
-  // newGameTTT,
-  // gameMoveTTT
+  signOutTTT,
+  newGameTTT,
+  resetGameTTT,
+  gameMoveTTT
 }

@@ -22,8 +22,8 @@ const onSignUpFailureTTT = function (response) {
 }
 
 const onSignInSuccessTTT = function (response) {
-  $('#message').text(response.user.email + ' signed in to TicTacToe.')
   store.user = response.user
+  $('#message').text(response.user.email + ' signed in to TicTacToe.')
   $('#sign-in').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('success-message')
@@ -56,9 +56,12 @@ const onChangePasswordFailureTTT = function (response) {
 }
 
 const onSignOutSuccessTTT = function (response) {
-  $('#message').text(response.user.email + ' signed out of TicTacToe. Come back soon!')
+  $('#message').text('User signed out of TicTacToe. Come back soon!')
   $('#message').removeClass()
   $('#message').addClass('success-message')
+  $('#gameBoard').hide()
+  $('.x-move').hide()
+  $('.o-move').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
   $('#sign-up').show()
@@ -66,10 +69,41 @@ const onSignOutSuccessTTT = function (response) {
   store.user = null
 }
 
-const onSignOutFailure = function (response) {
+const onSignOutFailureTTT = function (response) {
   $('#message').text('Error: user not signed out. Please try again.')
   $('#message').removeClass()
   $('#message').addClass('failure-message')
+}
+
+const onNewGameStartTTT = function (response) {
+  $('#message').text('User started a new game.')
+  $('#message').removeClass()
+  $('#message').addClass('success-message')
+  $('#newGame').hide()
+  $('#resetGame').show()
+  $('#gameBoard').show()
+  $('.x-move').hide()
+  $('.o-move').hide()
+}
+
+const onNewGameFailTTT = function (response) {
+  $('#message').removeClass()
+  $('#message').addClass('failure-message')
+  $('#message').text('Error: could not start a new game. Please try again.')
+}
+
+const onGameMoveTTT = function () {
+  event.preventDefault()
+  $('#message').removeClass()
+  $('#message').addClass('move-message')
+  // turn changer text
+}
+
+const onEndGameTTT = function () {
+  event.preventDefault()
+  $('#message').removeClass()
+  $('#message').addClass('end-game-message')
+  $('message').text('Game is over')
 }
 
 module.exports = {
@@ -80,5 +114,9 @@ module.exports = {
   onChangePasswordSuccessTTT,
   onChangePasswordFailureTTT,
   onSignOutSuccessTTT,
-  onSignOutFailure
+  onSignOutFailureTTT,
+  onNewGameStartTTT,
+  onNewGameFailTTT,
+  onGameMoveTTT,
+  onEndGameTTT
 }

@@ -19,7 +19,7 @@
           <input name="credentials[email]" type="email" placeholder="example@google.com">
           <input name="credentials[password]" type="password" placeholder="Password">
           <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-          <input type = "submit" value="Sign up">
+          <input type="submit" value="Sign up">
         </fieldset>
       </form>
       <form id="sign-in">
@@ -27,7 +27,7 @@
           <legend>Sign in to your TicTacToe account</legend>
           <input name="credentials[email]" type="email" placeholder="example@google.com">
           <input name="credentials[password]" type="password" placeholder="Password">
-          <input type = "submit" value="Sign in">
+          <input type="submit" value="Sign in">
         </fieldset>
       </form>
       <form id="change-password">
@@ -35,28 +35,56 @@
           <legend>Change your password</legend>
           <input name="passwords[old]" type="password" placeholder="Current password">
           <input name="passwords[new]" type="password" placeholder="New password">
-          <input type = "submit" value="Change password">
+          <input type="submit" value="Change password">
         </fieldset>
       </form>
       <form id="sign-out">
         <fieldset>
           <legend>Sign out</legend>
-          <input type = "submit" value="Sign out">
+          <input type="submit" value="Sign out">
         </fieldset>
       </form>
       <p id='message'></p>
       <button type='button' id='newGame'>Start a new game</button>
+      <button type='button' id='resetGame'>Reset game</button>
       <div class='container' id='gameBoard'>
         <div class='row'>
-          <div class='square col-4 board-bottom board-right'></div>
-          <div class='square col-4 board-bottom board-left board-right'></div>
-          <div class='square col-4 board-bottom board-left'></div>
-          <div class='square col-4 board-top board-bottom board-right'></div>
-          <div class='square col-4 board-top board-bottom board-left board-right'></div>
-          <div class='square col-4 board-top board-bottom board-left'></div>
-          <div class='square col-4 board-top board-right'></div>
-          <div class='square col-4 board-top board-left board-right'></div>
-          <div class='square col-4 board-top board-left'></div>
+          <div class='square col-4 board-bottom board-right' id='0'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-bottom board-left board-right' id='1'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-bottom board-left' id='2'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-bottom board-right' id='3'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-bottom board-left board-right' id='4'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-bottom board-left' id='5'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-right' id='6'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-left board-right' id='7'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-left' id='square8'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
         </div>
       </div>
     </body>

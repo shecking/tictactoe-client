@@ -41,21 +41,37 @@ const onSignOutTTT = function (event) {
 }
 
 const onNewGameTTT = function (event) {
-  $('#gameBoard').show()
+  event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api.NewGameTTT(data)
-    .then()
-    .catch()
+  api.newGameTTT(data)
+    .then(ui.onNewGameStartTTT)
+    .catch(ui.onNewGameFailTTT)
+}
+let turnCount = 0
+const onGameMoveTTT = function (event) {
+  const form = event.target
+  const data = getFormFields(form)
+  if (turnCount % 2 !== 1) {
+    $(event.target).children('.x-move').show()
+    turnCount = turnCount + 1
+    console.log(turnCount)
+  } else {
+    $(event.target).children('.o-move').show()
+    turnCount = turnCount + 1
+    console.log(turnCount)
+  }
+  // api.endGame(data)
+  // .then(ui.onEndGameTTT)
 }
 
-const onGameMoveTTT = function (event) {
-  // console.log('click')
+const onResetGameTTT = function (event) {
+  event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  api.GameMoveTTT(data)
-    .then()
-    .catch()
+  api.newGameTTT(data)
+    .then(ui.onNewGameStartTTT)
+    .catch(ui.onNewGameFailTTT)
 }
 
 module.exports = {
@@ -64,5 +80,6 @@ module.exports = {
   onChangePasswordTTT,
   onSignOutTTT,
   onNewGameTTT,
-  onGameMoveTTT
+  onGameMoveTTT,
+  onResetGameTTT
 }
