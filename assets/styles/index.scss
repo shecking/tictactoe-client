@@ -1,18 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 
-$board-bg-color: #d3d3d3;
+$bg-color: #d3d3d3;
 $board-border: #000;
 $failure-text-color: #f00;
-$move-text-color: #800080;
+$game-move-color: #00f;
 $success-text-color: #008000;
-$x-o-color: #00f;
+$x-color: #800080;
+$o-color: #ffa500;
+$shadow-blur: #696969;
 
 .container {
   align-items: center;
-  background-color: $board-bg-color;
+  background-color: $bg-color;
   display: flex;
   height: 420px;
-  margin: 10px 100px;
+  margin: auto;
   padding: -10px;
   width: 420px;
 }
@@ -30,25 +32,38 @@ form {
 }
 
 h1 {
+  background-color: $bg-color;
   text-align: center;
 }
 
 .move-message {
-  color: $move-text-color;
+  color: $game-move-color;
+  font-size: 20px;
+}
+
+#newGame {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .o-move {
+  color: $o-color;
   position: absolute;
+  text-shadow: 2px 2px 3px $shadow-blur;
+}
+
+.o-win-message {
+  color: $o-color;
 }
 
 .square {
   align-content: center;
   align-items: baseline;
-  color: $x-o-color;
   display: flex;
   font-size: 84px;
   height: 140px;
-  justify-content: space-around;
+  justify-content: center;
   padding: 0;
   width: 140px;
 
@@ -78,5 +93,11 @@ h1 {
 }
 
 .x-move {
+  color: $x-color;
   position: absolute;
+  text-shadow: 2px 2px 3px $shadow-blur;
+}
+
+.x-win-message {
+  color: $x-color;
 }

@@ -10,6 +10,7 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+      <br>
       <h1>Tic Tac Toe</h1>
       <form id="sign-up">
         <fieldset>
@@ -30,63 +31,74 @@
         </fieldset>
       </form>
 
-      <p id='status-message'></p><p></p>
-      <p id='game-message'></p><p></p>
+      <p id='status-message'></p>
+      <p id='game-message'></p>
 
-      <button type='button' id='newGame'>Start game</button><br>
-      <button type='button' id='resetGame'>Reset game</button><br>
+      <form id="start-game">
+        <fieldset>
+          <input type="submit" value="Start game">
+        </fieldset>
+      </form>
+
+      <form id="reset-game">
+        <fieldset>
+          <input type="submit" value="Reset game">
+        </fieldset>
+      </form>
 
       <div class='container' id='gameBoard'>
         <div class='row' id='row'>
-          <div class='square col-4 board-bottom board-right' data-cell-index='0' id='0'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-bottom board-right' data-cell-index='0'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-bottom board-left board-right' data-cell-index='1' id='1'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-bottom board-left board-right' data-cell-index='1'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-bottom board-left' data-cell-index='2' id='2'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-bottom board-left' data-cell-index='2'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-top board-bottom board-right' data-cell-index='3' id='3'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-top board-bottom board-right' data-cell-index='3'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-top board-bottom board-left board-right' data-cell-index='4' id='4'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-top board-bottom board-left board-right' data-cell-index='4'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-top board-bottom board-left' data-cell-index='5' id='5'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-top board-bottom board-left' data-cell-index='5'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-top board-right' data-cell-index='6' id='6'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-top board-right' data-cell-index='6'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-top board-left board-right' data-cell-index='7' id='7'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-top board-left board-right' data-cell-index='7'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
-          <div class='square col-4 board-top board-left' data-cell-index='8' id='8'>
-            <div class='x-move' data-game-move='x'>X</div>
-            <div class='o-move' data-game-move='o'>O</div>
+          <div class='square col-4 board-top board-left' data-cell-index='8'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
           </div>
         </div>
       </div>
+      <br>
+      <p id="number-of-games-message"></p>
       <form id="change-password">
         <fieldset>
           <legend>Change your password</legend>
-          <input name="passwords[old]" type="password" placeholder="Current password"><br>
+          <input name="passwords[old]" type="password" placeholder="Current password">
           <input name="passwords[new]" type="password" placeholder="New password">
           <input type="submit" value="Change password">
         </fieldset>
       </form><br>
       <form id="sign-out">
         <fieldset>
-          <legend></legend>
+          <legend>Sign out</legend>
           <input type="submit" value="Sign out">
         </fieldset>
       </form>

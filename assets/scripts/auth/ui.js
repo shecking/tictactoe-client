@@ -1,5 +1,7 @@
 'use strict'
 
+// const events = require('./events.js')
+// grab gameCount from this
 const store = require('./../store')
 
 const onSignUpSuccessTTT = function (response) {
@@ -9,7 +11,7 @@ const onSignUpSuccessTTT = function (response) {
   $('#status-message').addClass('success-message')
   $('#change-password').show()
   $('#sign-out').show()
-  $('#newGame').show()
+  $('#new-game').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
 }
@@ -30,9 +32,9 @@ const onSignInSuccessTTT = function (response) {
   $('#game-message').show()
   $('#game-message').addClass('move-message')
   $('#game-message').text('Press Start game to play!')
+  $('#start-game').show()
   $('#change-password').show()
   $('#sign-out').show()
-  $('#newGame').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
 }
@@ -59,17 +61,18 @@ const onChangePasswordFailureTTT = function (response) {
 }
 
 const onSignOutSuccessTTT = function (response) {
-  $('#status-message').text('User signed out of TicTacToe. Come back soon!')
   $('#status-message').removeClass()
   $('#status-message').addClass('success-message')
-  $('#message2').hide()
+  $('#status-message').show()
+  $('#status-message').text('User signed out of TicTacToe. Come back soon!')
+  $('#game-message').hide()
   $('#gameBoard').hide()
   $('.x-move').hide()
   $('.o-move').hide()
   $('#change-password').hide()
   $('#sign-out').hide()
-  $('#newGame').hide()
-  $('#resetGame').hide()
+  $('#start-game').hide()
+  $('#reset-game').hide()
   $('#sign-up').show()
   $('#sign-in').show()
   store.user = null
@@ -90,9 +93,10 @@ const onNewGameStartTTT = function (response) {
   $('#game-message').text('X, it is your move.')
   $('#game-message').removeClass()
   $('#game-message').addClass('move-message')
-  $('#newGame').hide()
-  $('#resetGame').show()
+  $('#start-game').hide()
+  $('#reset-game').show()
   $('#gameBoard').show()
+  $('#gameBoard').prop('enabled', true)
   $('.x-move').hide()
   $('.o-move').hide()
 }
@@ -103,35 +107,36 @@ const onNewGameFailTTT = function (response) {
   $('#status-message').text('Error: could not start a new game. Please try again.')
 }
 
-const onResetGameSuccessTTT = function () {
-  $('#status-message').removeClass()
-  $('#status-message').addClass('success-message')
-  $('#status-message').show()
-  $('#game-message').show()
-  $('#status-message').text('User reset the game.')
-  $('#game-message').text('X, it is your move.')
-  $('.x-move').hide()
-  $('.o-move').hide()
-}
-
-const onResetGameFailTTT = function () {
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
-  $('#message').text('Unable to reset the game.')
-}
-
-const onXMoveTTT = function () {
+const onXMoveTTT = function (response) {
+  store.game = response.game
   $('#status-message').hide()
   $('#game-message').removeClass()
   $('#game-message').addClass('move-message')
   $('#game-message').text('O, it is your move.')
 }
 
-const onOMoveTTT = function () {
+const onXWinTTT = function (response) {
+  store.game = response.game
+  $('#game-message').removeClass()
+  $('#game-message').addClass('x-win-message')
+  $('#game-message').text('X wins!!')
+  $('#gameBoard').prop('disabled', true)
+}
+
+const onOMoveTTT = function (response) {
+  store.game = response.game
   $('#status-message').hide()
   $('#game-message').removeClass()
   $('#game-message').addClass('move-message')
   $('#game-message').text('X, it is your move.')
+}
+
+const onOWinTTT = function (response) {
+  store.game = response.game
+  $('#game-message').removeClass()
+  $('#game-message').addClass('o-win-message')
+  $('#game-message').text('O wins!!')
+  $('#gameBoard').prop('disabled', true)
 }
 
 const onInvalidMoveTTT = function () {
@@ -140,10 +145,11 @@ const onInvalidMoveTTT = function () {
   $('#game-message').text('You cannot move there. Please try a different move.')
 }
 
-const onFullGameTTT = function () {
+const onFullGameTTT = function (response) {
   $('#status-message').text('Game is over.')
   $('#status-message').show()
-  $('#game-message').text('Player X/O has won!')
+  $('#game-message').text('X and O are evenly matched. Tie game!')
+  $('#gameBoard').prop('disabled', true)
 }
 
 module.exports = {
@@ -157,10 +163,10 @@ module.exports = {
   onSignOutFailureTTT,
   onNewGameStartTTT,
   onNewGameFailTTT,
-  onResetGameSuccessTTT,
-  onResetGameFailTTT,
   onXMoveTTT,
+  onXWinTTT,
   onOMoveTTT,
+  onOWinTTT,
   onInvalidMoveTTT,
   onFullGameTTT
 }

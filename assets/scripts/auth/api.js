@@ -63,68 +63,17 @@ const resetGameTTT = function (data) {
   })
 }
 
-const xMoveTTT = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'game': {
-        'cell': {
-          'index': $(event.target).data('cellIndex'), // what position did they move to
-          // using data attributes and value/over properties
-          // see Game Actions doc
-          'value': 'x' // who made the move
-        },
-        'over': false // is the game over
-      }
-    },
-    success: function (data) {
-      console.log(data)
-    }
-  })
-}
-
-const oMoveTTT = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
-    method: 'PATCH',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'game': {
-        'cell': {
-          'index': $(event.target).data('cellIndex'), // what position did they move to
-          // using data attributes and value/over properties
-          // see Game Actions doc
-          'value': 'o' // who made the move
-        },
-        'over': false // is the game over
-      }
-    },
-    success: function (data) {
-      console.log(data)
-    }
-  })
-}
-
 const getBoardTTT = function () {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    success: function (data) {
-      console.log(data)
     }
   })
 }
 
-const fullGameTTT = function (data) {
+const gameMoveTTT = function (xOrO) {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
     method: 'PATCH',
@@ -134,16 +83,36 @@ const fullGameTTT = function (data) {
     data: {
       'game': {
         'cell': {
-          'index': $(event.target).data('cellIndex'), // what position did they move to
+          'index': $(event.target).data('cellIndex'),
+          // 'index': $(event.target).data('cellIndex'),
+          // what position did they move to
           // using data attributes and value/over properties
           // see Game Actions doc
-          'value': 'x' // who made the move
+          'value': xOrO // who made the move
         },
-        'over': true
+        'over': false // is the game over
       }
+    }
+  })
+}
+
+const finalMoveTTT = function (xOrO, cellIndex) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
     },
-    success: function (data) {
-      console.log(data)
+    data: {
+      'game': {
+        'cell': {
+          'index': cellIndex, // what position did they move to
+          // using data attributes and value/over properties
+          // see Game Actions doc
+          'value': xOrO // who made the move
+        },
+        'over': true // is the game over
+      }
     }
   })
 }
@@ -155,8 +124,7 @@ module.exports = {
   signOutTTT,
   newGameTTT,
   resetGameTTT,
-  xMoveTTT,
-  oMoveTTT,
   getBoardTTT,
-  fullGameTTT
+  gameMoveTTT,
+  finalMoveTTT
 }
