@@ -21,6 +21,18 @@ $x-o-color: #00f;
   color: $failure-text-color;
 }
 
+form {
+  padding-left: 20px;
+}
+
+#game-message {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
 .move-message {
   color: $move-text-color;
 }
@@ -55,6 +67,10 @@ $x-o-color: #00f;
   &.board-right {
     border-right: 5px solid $board-border;
   }
+}
+
+#status-message {
+  text-align: center;
 }
 
 .success-message {

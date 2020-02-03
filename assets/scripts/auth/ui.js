@@ -3,10 +3,10 @@
 const store = require('./../store')
 
 const onSignUpSuccessTTT = function (response) {
-  $('#message').text(response.user.email + ' signed up successfully. Welcome to TicTacToe!')
+  $('#status-message').text(response.user.email + ' signed up successfully. Welcome to TicTacToe!')
   $('#sign-up').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('success-message')
   $('#change-password').show()
   $('#sign-out').show()
   $('#newGame').show()
@@ -15,18 +15,21 @@ const onSignUpSuccessTTT = function (response) {
 }
 
 const onSignUpFailureTTT = function (response) {
-  $('#message').text('Error: sign up failed. Please try again.')
+  $('#status-message').text('Error: sign up failed. Please try again.')
   $('#sign-up').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('failure-message')
 }
 
 const onSignInSuccessTTT = function (response) {
   store.user = response.user
-  $('#message').text(response.user.email + ' signed in to TicTacToe.')
+  $('#status-message').text(response.user.email + ' signed in to TicTacToe.')
   $('#sign-in').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('success-message')
+  $('#game-message').show()
+  $('#game-message').addClass('move-message')
+  $('#game-message').text('Press Start game to play!')
   $('#change-password').show()
   $('#sign-out').show()
   $('#newGame').show()
@@ -35,30 +38,30 @@ const onSignInSuccessTTT = function (response) {
 }
 
 const onSignInFailureTTT = function (response) {
-  $('#message').text('Error: sign in failed. Please try again.')
+  $('#status-message').text('Error: sign in failed. Please try again.')
   $('#sign-in').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('failure-message')
 }
 
 const onChangePasswordSuccessTTT = function (response) {
-  $('#message').text('Password changed successfully!')
+  $('#status-message').text('Password changed successfully!')
   $('#change-password').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('success-message')
 }
 
 const onChangePasswordFailureTTT = function (response) {
-  $('#message').text('Error: password not changed. Please try again.')
+  $('#status-message').text('Error: password not changed. Please try again.')
   $('#change-password').trigger('reset')
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('failure-message')
 }
 
 const onSignOutSuccessTTT = function (response) {
-  $('#message').text('User signed out of TicTacToe. Come back soon!')
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
+  $('#status-message').text('User signed out of TicTacToe. Come back soon!')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('success-message')
   $('#message2').hide()
   $('#gameBoard').hide()
   $('.x-move').hide()
@@ -73,19 +76,20 @@ const onSignOutSuccessTTT = function (response) {
 }
 
 const onSignOutFailureTTT = function (response) {
-  $('#message').text('Error: user not signed out. Please try again.')
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
+  $('#status-message').text('Error: user not signed out. Please try again.')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('failure-message')
 }
 
 const onNewGameStartTTT = function (response) {
   store.game = response.game
-  $('#message').text('User started a new game.')
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
-  $('#message2').text('X, it is your move.')
-  $('#message2').removeClass()
-  $('#message2').addClass('move-message')
+  $('#status-message').text('User started a new game.')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('success-message')
+  $('#game-message').show()
+  $('#game-message').text('X, it is your move.')
+  $('#game-message').removeClass()
+  $('#game-message').addClass('move-message')
   $('#newGame').hide()
   $('#resetGame').show()
   $('#gameBoard').show()
@@ -94,18 +98,18 @@ const onNewGameStartTTT = function (response) {
 }
 
 const onNewGameFailTTT = function (response) {
-  $('#message').removeClass()
-  $('#message').addClass('failure-message')
-  $('#message').text('Error: could not start a new game. Please try again.')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('failure-message')
+  $('#status-message').text('Error: could not start a new game. Please try again.')
 }
 
 const onResetGameSuccessTTT = function () {
-  $('#message').removeClass()
-  $('#message').addClass('success-message')
-  $('#message').show()
-  $('#message2').show()
-  $('#message').text('User reset the game.')
-  $('message2').text('X, it is your move.')
+  $('#status-message').removeClass()
+  $('#status-message').addClass('success-message')
+  $('#status-message').show()
+  $('#game-message').show()
+  $('#status-message').text('User reset the game.')
+  $('#game-message').text('X, it is your move.')
   $('.x-move').hide()
   $('.o-move').hide()
 }
@@ -117,29 +121,29 @@ const onResetGameFailTTT = function () {
 }
 
 const onXMoveTTT = function () {
-  $('#message').hide()
-  $('#message2').removeClass()
-  $('#message2').addClass('move-message')
-  $('#message2').text('O, it is your move.')
+  $('#status-message').hide()
+  $('#game-message').removeClass()
+  $('#game-message').addClass('move-message')
+  $('#game-message').text('O, it is your move.')
 }
 
 const onOMoveTTT = function () {
-  $('#message').hide()
-  $('#message2').removeClass()
-  $('#message2').addClass('move-message')
-  $('#message2').text('X, it is your move.')
+  $('#status-message').hide()
+  $('#game-message').removeClass()
+  $('#game-message').addClass('move-message')
+  $('#game-message').text('X, it is your move.')
 }
 
 const onInvalidMoveTTT = function () {
-  $('message2').removeClass()
-  $('message2').addClass('failure-message')
-  $('message2').text('You cannot move there. Please choose a different move.')
+  $('#game-message').removeClass()
+  $('#game-message').addClass('failure-message')
+  $('#game-message').text('You cannot move there. Please try a different move.')
 }
 
 const onFullGameTTT = function () {
-  $('#message').text('Game is over.')
-  $('#message').show()
-  $('#message2').text('Player X/O has won!')
+  $('#status-message').text('Game is over.')
+  $('#status-message').show()
+  $('#game-message').text('Player X/O has won!')
 }
 
 module.exports = {

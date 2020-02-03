@@ -41,6 +41,7 @@ const onSignOutTTT = function (event) {
 }
 
 const onNewGameTTT = function (event) {
+  event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
   api.newGameTTT(data)
@@ -51,9 +52,9 @@ const onNewGameTTT = function (event) {
 let turnCount = 1
 let gameCount = 0
 const onGameMoveTTT = function (event) {
-  api.getBoardTTT()
-  if (gameCount === -1) {
-    console.log('NOPE')
+  if ($((event.target).children).css('display') !== 'none') {
+    api.getBoardTTT()
+      .then(ui.onInvalidMoveTTT)
   } else {
     if ((turnCount % 2 !== 0) && (turnCount < 9)) {
       $(event.target).children('.x-move').show()
@@ -61,9 +62,8 @@ const onGameMoveTTT = function (event) {
       api.xMoveTTT()
       // if (win conditions)
       // else continue game
-        .then(ui.onXMoveTTT)
+      // .then(ui.onXMoveTTT)
     } else if ((turnCount % 2 !== 1) && (turnCount < 9)) {
-    // catch invalid move here
       $(event.target).children('.o-move').show()
       turnCount = turnCount + 1
       api.oMoveTTT()
@@ -80,6 +80,7 @@ const onGameMoveTTT = function (event) {
 }
 
 const onResetGameTTT = function (event) {
+  event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
   turnCount = 1
