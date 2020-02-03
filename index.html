@@ -30,25 +30,12 @@
           <input type="submit" value="Sign in">
         </fieldset>
       </form>
-      <form id="change-password">
-        <fieldset>
-          <legend>Change your password</legend>
-          <input name="passwords[old]" type="password" placeholder="Current password">
-          <input name="passwords[new]" type="password" placeholder="New password">
-          <input type="submit" value="Change password">
-        </fieldset>
-      </form>
-      <form id="sign-out">
-        <fieldset>
-          <legend>Sign out</legend>
-          <input type="submit" value="Sign out">
-        </fieldset>
-      </form>
       <p id='message'></p>
+      <p id='message2'></p>
       <button type='button' id='newGame'>Start a new game</button>
       <button type='button' id='resetGame'>Reset game</button>
       <div class='container' id='gameBoard'>
-        <div class='row'>
+        <div class='row' id='row'>
           <div class='square col-4 board-bottom board-right' data-cell-index='0' id='0'>
             <div class='x-move'>X</div>
             <div class='o-move'>O</div>
@@ -87,5 +74,19 @@
           </div>
         </div>
       </div>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change your password</legend>
+          <input name="passwords[old]" type="password" placeholder="Current password">
+          <input name="passwords[new]" type="password" placeholder="New password">
+          <input type="submit" value="Change password">
+        </fieldset>
+      </form>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign out</legend>
+          <input type="submit" value="Sign out">
+        </fieldset>
+      </form>
     </body>
 </html>

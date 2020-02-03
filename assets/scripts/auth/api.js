@@ -2,6 +2,7 @@
 
 const config = require('./../config')
 const store = require('./../store')
+// const html = require('./../../../index.html')
 
 const signUpTTT = function (data) {
   return $.ajax({
@@ -54,7 +55,7 @@ const newGameTTT = function (data) {
 const resetGameTTT = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
-    method: 'PATCH',
+    method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
@@ -69,7 +70,20 @@ const xMoveTTT = function (data) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: data
+    data: {
+      'game': {
+        'cell': {
+          'index': $(event.target).data('cellIndex'), // what position did they move to
+          // using data attributes and value/over properties
+          // see Game Actions doc
+          'value': 'x' // who made the move
+        },
+        'over': false // is the game over
+      }
+    },
+    success: function (data) {
+      console.log(data)
+    }
   })
 }
 
@@ -80,7 +94,57 @@ const oMoveTTT = function (data) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: data
+    data: {
+      'game': {
+        'cell': {
+          'index': $(event.target).data('cellIndex'), // what position did they move to
+          // using data attributes and value/over properties
+          // see Game Actions doc
+          'value': 'o' // who made the move
+        },
+        'over': false // is the game over
+      }
+    },
+    success: function (data) {
+      console.log(data)
+    }
+  })
+}
+
+const getBoardTTT = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    success: function (data) {
+      console.log(data)
+    }
+  })
+}
+
+const fullGameTTT = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': $(event.target).data('cellIndex'), // what position did they move to
+          // using data attributes and value/over properties
+          // see Game Actions doc
+          'value': 'x' // who made the move
+        },
+        'over': true
+      }
+    },
+    success: function (data) {
+      console.log(data)
+    }
   })
 }
 
@@ -92,5 +156,7 @@ module.exports = {
   newGameTTT,
   resetGameTTT,
   xMoveTTT,
-  oMoveTTT
+  oMoveTTT,
+  getBoardTTT,
+  fullGameTTT
 }
