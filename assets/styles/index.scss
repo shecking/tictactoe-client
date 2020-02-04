@@ -1,1 +1,117 @@
 @import '~bootstrap/scss/bootstrap';
+
+$bg-color: #d3d3d3;
+$board-border: #000;
+$failure-text-color: #f00;
+$game-move-color: #00f;
+$success-text-color: #008000;
+$x-color: #800080;
+$o-color: #ffa500;
+$shadow-blur: #696969;
+
+.centered {
+  text-align: center;
+}
+
+.container {
+  align-items: center;
+  background-color: $bg-color;
+  display: flex;
+  height: 420px;
+  margin: auto;
+  padding: -10px;
+  width: 420px;
+}
+
+.failure-message {
+  color: $failure-text-color;
+}
+
+form {
+  padding-left: 20px;
+}
+
+#game-message {
+  text-align: center;
+}
+
+h1 {
+  background-color: $bg-color;
+  text-align: center;
+}
+
+.move-message {
+  color: $game-move-color;
+  font-size: 20px;
+}
+
+#newGame {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.o-move {
+  color: $o-color;
+  position: absolute;
+  text-shadow: 2px 2px 3px $shadow-blur;
+}
+
+.o-win-message {
+  color: $o-color;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+.square {
+  align-content: center;
+  align-items: baseline;
+  display: flex;
+  font-size: 84px;
+  height: 140px;
+  justify-content: center;
+  padding: 0;
+  width: 140px;
+
+  &.board-top {
+    border-top: 5px solid $board-border;
+  }
+
+  &.board-bottom {
+    border-bottom: 5px solid $board-border;
+  }
+
+  &.board-left {
+    border-left: 5px solid $board-border;
+  }
+
+  &.board-right {
+    border-right: 5px solid $board-border;
+  }
+}
+
+.start-game {
+  padding: 20px;
+  text-align: center;
+}
+
+#status-message {
+  text-align: center;
+}
+
+.success-message {
+  color: $success-text-color;
+}
+
+.x-move {
+  color: $x-color;
+  position: absolute;
+  text-shadow: 2px 2px 3px $shadow-blur;
+}
+
+.x-win-message {
+  color: $x-color;
+  font-size: 32px;
+  font-weight: bold;
+}
