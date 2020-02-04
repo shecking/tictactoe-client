@@ -6,7 +6,7 @@ curl "https://tic-tac-toe-wdi.herokuapp.com/sign-up" \
     "credentials": {
       "email": "'"${EMAIL}"'",
       "password": "'"${PASSWORD}"'",
-      "password_confirmation": "'"${PASSWORDCONFIRM}"'"
+      "password_confirmation": "'"${PASSWORD}"'"
     }
   }'
 

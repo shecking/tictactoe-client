@@ -2,7 +2,6 @@
 
 const config = require('./../config')
 const store = require('./../store')
-// const html = require('./../../../index.html')
 
 const signUpTTT = function (data) {
   return $.ajax({
@@ -52,20 +51,19 @@ const newGameTTT = function (data) {
   })
 }
 
-const resetGameTTT = function (data) {
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: '{}'
-  })
-}
-
 const getBoardTTT = function () {
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getTotalGamesTTT = function () {
+  return $.ajax({
+    url: config.apiUrl + '/games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -123,8 +121,8 @@ module.exports = {
   changePasswordTTT,
   signOutTTT,
   newGameTTT,
-  resetGameTTT,
   getBoardTTT,
+  getTotalGamesTTT,
   gameMoveTTT,
   finalMoveTTT
 }

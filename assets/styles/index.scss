@@ -9,6 +9,10 @@ $x-color: #800080;
 $o-color: #ffa500;
 $shadow-blur: #696969;
 
+.centered {
+  text-align: center;
+}
+
 .container {
   align-items: center;
   background-color: $bg-color;
@@ -55,7 +59,10 @@ h1 {
 
 .o-win-message {
   color: $o-color;
+  font-size: 24px;
+  font-weight: bold;
 }
+
 
 .square {
   align-content: center;
@@ -84,6 +91,11 @@ h1 {
   }
 }
 
+.start-game {
+  padding: 20px;
+  text-align: center;
+}
+
 #status-message {
   text-align: center;
 }
@@ -100,4 +112,6 @@ h1 {
 
 .x-win-message {
   color: $x-color;
+  font-size: 32px;
+  font-weight: bold;
 }
