@@ -77,6 +77,7 @@ const onSignOutSuccessTTT = function (response) {
   $('.x-move').hide()
   $('.o-move').hide()
   $('#change-password').hide()
+  $('#change-password').trigger('reset')
   $('#sign-out').hide()
   $('#start-game').hide()
   $('#reset-game').hide()
