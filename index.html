@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <br>
+      <h1>Tic Tac Toe</h1>
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up for TicTacToe</legend>
+          <input name="credentials[email]" type="email" placeholder="example@google.com">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+          <input type="submit" value="Sign up">
+        </fieldset>
+      </form>
+      <br>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in to your TicTacToe account</legend>
+          <input name="credentials[email]" type="email" placeholder="example@google.com">
+          <input name="credentials[password]" type="password" placeholder="Password">
+          <input type="submit" value="Sign in">
+        </fieldset>
+      </form>
+
+      <p class="centered" id='status-message'></p>
+      <br>
+      <p class="centered" id='game-message'></p>
+
+      <form class="start-game centered" id="start-game">
+        <fieldset>
+          <input type="submit" value="Start game">
+        </fieldset>
+      </form>
+
+      <form class="start-game centered" id="reset-game">
+        <fieldset>
+          <input type="submit" value="Reset game">
+        </fieldset>
+      </form>
+
+      <div class='container' id='gameBoard'>
+        <div class='row' id='row'>
+          <div class='square col-4 board-bottom board-right' data-cell-index='0'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-bottom board-left board-right' data-cell-index='1'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-bottom board-left' data-cell-index='2'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-bottom board-right' data-cell-index='3'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-bottom board-left board-right' data-cell-index='4'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-bottom board-left' data-cell-index='5'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-right' data-cell-index='6'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-left board-right' data-cell-index='7'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+          <div class='square col-4 board-top board-left' data-cell-index='8'>
+            <div class='x-move'>X</div>
+            <div class='o-move'>O</div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="centered" id="counter"></div>
+      <br>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change your password</legend>
+          <input name="passwords[old]" type="password" placeholder="Current password">
+          <input name="passwords[new]" type="password" placeholder="New password">
+          <input type="submit" value="Change password">
+        </fieldset>
+      </form><br>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign out</legend>
+          <input type="submit" value="Sign out">
+        </fieldset>
+      </form>
+    </body>
+</html>
