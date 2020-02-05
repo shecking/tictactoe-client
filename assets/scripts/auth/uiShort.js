@@ -77,7 +77,7 @@ const onceLoggedOut = function () {
   $('.o-move').hide()
 }
 //
-// function list
+// original function list
 // --------------
 // UI/callbacks
 //
