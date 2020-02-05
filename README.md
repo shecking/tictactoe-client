@@ -51,3 +51,5 @@ As a user, I want a game interface that looks nice and is easy to understand.
 As of "version 1.0" the application is fully functional, with the ability to play Tic Tac Toe games on a registered user account.  However, it largely lacks visual aesthetic, and does not currently translate to a mobile environment very well. Future versions of this application might include an reformatted mobile version, an updated visual presentation, and further down the line would ideally support a wider range of stored user statistics and multiplayer capabilities.
 
 #### Wireframe:
+
+Wireframe image: https://i.imgur.com/BFLOLyP.jpg?1
