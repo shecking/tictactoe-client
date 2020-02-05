@@ -82,13 +82,11 @@ const gameMoveTTT = function (xOrO) {
       'game': {
         'cell': {
           'index': $(event.target).data('cellIndex'),
-          // 'index': $(event.target).data('cellIndex'),
           // what position did they move to
           // using data attributes and value/over properties
-          // see Game Actions doc
-          'value': xOrO // who made the move
+          'value': xOrO
         },
-        'over': false // is the game over
+        'over': false
       }
     }
   })
@@ -106,10 +104,9 @@ const finalMoveTTT = function (xOrO, cellIndex) {
         'cell': {
           'index': cellIndex, // what position did they move to
           // using data attributes and value/over properties
-          // see Game Actions doc
-          'value': xOrO // who made the move
+          'value': xOrO
         },
-        'over': true // is the game over
+        'over': true
       }
     }
   })

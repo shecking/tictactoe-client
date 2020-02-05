@@ -1,17 +1,14 @@
 # Tic Tac Toe: Application Description
 
-<!-- What it does, why I'm doing it -->
 This game application allows the user to create and log into an account, play rounds of the ever popular game of Tic Tac Toe, and track their total games played. I (Steven Hecking) completed this application as my first complete coding project at General Assembly Boston.
 
 ## Important Links
 
-<!-- link to site -->
 Link to the application: https://shecking.github.io/tictactoe-client/
 Link to the application's repo: https://github.com/shecking/tictactoe-client
 
 ## Planning Story
 
-<!-- How it was planned/organized, compartmentalized, written, completed -->
 As this project represents my first real step into software engineering, it was essential for me to spend time planning the structure of the application, define its pieces and their interactions, and make small, incremental steps rather than have the end goal in mind immediately.
 
 Loosely following a project schedule outlined by General Assembly for what problems to tackle, I studied related sets of documentation for the project to familiarize myself with their structures, considered user experience by creating a list of user stories, and sketched a basic wireframe for the application to begin to visualize its form.
