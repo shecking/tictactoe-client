@@ -49,7 +49,13 @@ const onNewGameTTT = function (event) {
   turnCount = 1
   gameOver = false
   api.newGameTTT(data)
-    .then(ui.onNewGameStartTTT)
+    .then((res) => {
+      ui.onNewGameStartTTT(res)
+      return res
+    })
+    .then((res) => {
+      store.game.id = res.game._id
+    })
     .catch(ui.onNewGameFailTTT)
   api.getTotalGamesTTT()
     .then(ui.totalGamesTTT)

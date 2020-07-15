@@ -53,7 +53,7 @@ const newGameTTT = function (data) {
 
 const getBoardTTT = function () {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -73,7 +73,7 @@ const getTotalGamesTTT = function () {
 
 const gameMoveTTT = function (xOrO) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -94,7 +94,7 @@ const gameMoveTTT = function (xOrO) {
 
 const finalMoveTTT = function (xOrO, cellIndex) {
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.game.id,
+    url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
